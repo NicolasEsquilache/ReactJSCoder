@@ -2,22 +2,24 @@ import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar =() =>{
     return(
-        <nav>
-            <h1>Mercadocoder</h1>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <div className="container-fluid">
+            <a href="#" className="navbar-brand">Mercadocoder</a>
 
-            <ul>
-                <li>
-                    <a href="#">Vehiculos</a>
+            <ul className="navbar-nav me-auto">
+                <li className="nav-item">
+                    <a href="#" className="nav-link">Vehiculos</a>
                 </li>
-                <li>
-                    <a href="#">Muebles</a>
+                <li className="nav-item">
+                    <a href="#" className="nav-link active">Muebles</a>
                 </li>
-                <li>
-                    <a href="#">Tecnologia</a>
+                <li className="nav-item">
+                    <a href="#" className="nav-link">Tecnologia</a>
                 </li>
             </ul>
 
             <CartWidget/>
+            </div>
         </nav>
     );
 };
