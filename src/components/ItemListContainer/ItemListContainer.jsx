@@ -1,10 +1,21 @@
-/* eslint-disable react/prop-types */
-const ItemListContainer =({greeting})=>{
+import { useState, useEffect } from "react";
+import { useParams} from "react-router-dom";
+import { getProducts } from "../../services";
+import ItemList from "../ItemList/ItemList";
 
-    return(
-        <div>
-            <h1>{greeting}</h1>
-        </div>
-    );
+const ItemListContainer = () => {
+    const [items, setItems] = useState([]);
+    const {categoryId}= useParams();
+
+
+    useEffect(() => {
+            getProducts(categoryId).then((response) => {
+               setItems (response);
+            });
+        }, [categoryId]);
+
+
+
+    return <ItemList items={items} />;
 };
 export default ItemListContainer;
