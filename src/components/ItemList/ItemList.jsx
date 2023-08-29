@@ -1,35 +1,37 @@
 import React from "react";
-import propTypes  from "prop-types";
-import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-
-const ItemList = ({ items , isLoading}) => {
-
+const ItemList = ({ items, isLoading }) => {
     if (isLoading) {
-        return <h2>Cargando</h2>
-        
+        return <h2>Cargando</h2>;
     }
-    return (
-        <div>
-            <h1>ItemList</h1>
-            <ul>
-                {items.map((item) => (
-                    <li key={item.id}>
-                        <Link to = {`/item/${item.id}`}>
-                        <h3>{item.name}</h3>
-                        <p>${item.price}</p>
-                        <p>{item.category}</p>
-                        </Link>
-                    </li>
-                ))}
-            </ul>
 
+    return (
+        <div className="container">
+            <h1 className="text-center mt-4 mb-5">ItemList</h1>
+            <div className="row">
+                {items.map((item) => (
+                    <div key={item.id} className="col-md-4 mb-4">
+                        <div className="card h-100">
+                            <Link to={`/item/${item.id}`} className="text-decoration-none">
+                                <div className="card-body">
+                                    <h3 className="card-title">{item.name}</h3>
+                                    <p className="card-text">${item.price}</p>
+                                    <p className="card-text">{item.category}</p>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
 
 ItemList.propTypes = {
-    items: propTypes.array.isRequired,
-    isLoading: propTypes.bool,
+    items: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool,
 };
+
 export default ItemList;

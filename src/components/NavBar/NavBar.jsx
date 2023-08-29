@@ -1,27 +1,30 @@
-import {Link,NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 
-const NavBar =() =>{
-    return(
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
-                <nav >
-            <Link to= "/" className="navbar-brand">Mercadocoder</Link>
+const NavBar = () => {
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container">
+                <Link to="/" className="navbar-brand">Mercadocoder</Link>
 
-            <ul className="navbar-nav me-auto">
-                <li className="nav-item">
-                    <NavLink to= "/category/drone" className="nav-link">Drones</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to= "/category/camera" className="nav-link">Camaras</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to= "/category/tecnology" className="nav-link">Tecnologia</NavLink>
-                </li>
-            </ul>
-            </nav>
- 
-            <div><CartWidget/></div>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
+                            <NavLink to="/category/drone" className="nav-link" activeClassName="active">Drones</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/category/camera" className="nav-link" activeClassName="active">Camaras</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/category/tecnology" className="nav-link" activeClassName="active">Tecnologia</NavLink>
+                        </li>
+                    </ul>
+                    <CartWidget />
+                </div>
             </div>
         </nav>
     );
