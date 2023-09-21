@@ -16,9 +16,10 @@ const ItemList = ({ items, isLoading }) => {
                         <div className="card h-100">
                             <Link to={`/item/${item.id}`} className="text-decoration-none">
                                 <div className="card-body">
-                                    <h3 className="card-title">{item.name}</h3>
-                                    <p className="card-text">${item.price}</p>
-                                    <p className="card-text">{item.category}</p>
+                                <img src={`/src/assets/${item.imageId}`} alt={item.title} />
+                                    <h3 className="card-title">{item.title}</h3>
+                                    <p className="card-text">US${item.price}</p>
+                                    <p className="card-text">{item.categoryId}</p>
                                 </div>
                             </Link>
                         </div>

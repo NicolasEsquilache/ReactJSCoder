@@ -14,13 +14,13 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <NavLink to="/category/drone" className="nav-link" activeClassName="active">Drones</NavLink>
+                            <NavLink to="/category/drone" className="nav-link" activeclassname="active">Drones</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/category/camera" className="nav-link" activeClassName="active">Camaras</NavLink>
+                            <NavLink to="/category/camera" className="nav-link" activeclassname="active">Camaras</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/category/tecnology" className="nav-link" activeClassName="active">Tecnologia</NavLink>
+                            <NavLink to="/category/tecnology" className="nav-link" activeclassname="active">Tecnologia</NavLink>
                         </li>
                     </ul>
                     <CartWidget />
