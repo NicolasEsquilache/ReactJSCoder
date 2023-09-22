@@ -8,12 +8,12 @@ import App from './App.jsx';
 import './index.css';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD5j0u8aks0FnzhoxUPBt6sfkRzYer39Ds",
-  authDomain: "coder-react-bd40e.firebaseapp.com",
-  projectId: "coder-react-bd40e",
-  storageBucket: "coder-react-bd40e.appspot.com",
-  messagingSenderId: "946658783268",
-  appId: "1:946658783268:web:ff9e5b3fa55822458368b1"
+  apiKey: import.meta.env.VITE_FIRESTORE_API_KEY,
+  authDomain: import.meta.env.VITE_FIRESTORE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIRESTORE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIRESTORE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIRESTORE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIRESTORE_APP_ID,
 };
 
 initializeApp(firebaseConfig);
