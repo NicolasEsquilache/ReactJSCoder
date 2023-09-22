@@ -1,7 +1,8 @@
 import React from "react";
 import { useContext } from "react";
 import PropTypes from "prop-types";
-import CartContext from '../../context/CartContext';
+import CartContext from '../../context/CartContext'; import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ItemDetail = ({ item, isLoading, addItem }) => {
   if (isLoading) {
@@ -25,6 +26,7 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
 
   return (
     <div className="container mt-4">
+      <ToastContainer />
       <div className="card">
         <div className="row g-0">
           <div className="col-md-4 d-flex align-items-center">
@@ -41,16 +43,26 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
               <p className="card-text">Precio: US${item.price}</p>
               <p className="card-text">Stock: {item.stock}</p>
               <p className="card-text">Categoría: {item.categoryId}</p>
-              <button
-                onClick={() => addItem(item, 1)}
+              <button onClick={() => {
+                addItem(item, 1);
+                toast.success(`${item.title} se agregó al carrito.`, {
+                  position: "bottom-right",
+                  autoClose: 2000, 
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
+              }}
                 className="btn btn-primary"
-              >
-                Agregar al carrito
+              >Agregar al carrito
               </button>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   );
 
