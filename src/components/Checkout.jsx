@@ -37,40 +37,63 @@ const Checkout =() => {
     };
 
     return (
-        <div>
-            <h1>Checkout</h1>
-            <h2>Resumen de compra</h2>
-
-            {orderId && <p>El id de la orden es: {orderId}</p>}
-            {!orderId && (
+        <div className="container mt-4">
+          <h2>Resumen de compra</h2>
+    
+          {orderId && <p>El id de la orden es: {orderId}</p>}
+          {!orderId && (
             <>
-            <div>
+              <div>
                 <h4>Formulario de contacto</h4>
-                {/* Hacer el formulario, clase eventos. estado, inputs*/}
-            </div>
-
-            <div>
-            <ul>
-                
-                {cart.map((item)=> (
-                    <li key={item.id}>
-                        <p>{item.title}</p>
-                        <p>Cantidad: {item.quantity}</p>
-                        <p>Precio por unidad: ${item.price}</p>
-                        <p>Subtotal: ${item.price * item.quantity}</p>
+                {/* Agrega aquí tu formulario de contacto */}
+              </div>
+    
+              <div>
+                <ul className="list-group">
+                  {cart.map((item) => (
+                    <li key={item.id} className="list-group-item">
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex align-items-center">
+                          <img
+                            src={`/src/assets/${item.imageId}`}
+                            alt={item.title}
+                            className="img-thumbnail me-3"
+                            style={{ width: "80px", height: "80px" }}
+                          />
+                          <div>
+                            <p>{item.title}</p>
+                            <p>Cantidad: {item.quantity}</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p>Precio por unidad: ${item.price}</p>
+                          <p>Subtotal: ${item.price * item.quantity}</p>
+                        </div>
+                      </div>
                     </li>
-                ))}
-            </ul>
-            </div>
-            <p>Total de la compra: ${total}</p>
-            <button onClick={handleCheckout}>Finalizar compra</button>
-            <Link to={`/`}><button>Seguir comprando</button></Link>
-            <button onClick={clear}>Borrar carrito</button>
-            {isLoading && <p>Procesando compra...</p>}
+                  ))}
+                </ul>
+              </div>
+    
+              <p className="mt-3">Total de la compra: ${total}</p>
+    
+              <div className="mt-3">
+                <button onClick={handleCheckout} className="btn btn-primary">
+                  Finalizar compra
+                </button>
+                <Link to="/" className="btn btn-secondary ms-2">
+                  Seguir comprando
+                </Link>
+                <button onClick={clear} className="btn btn-danger ms-2">
+                  Borrar carrito
+                </button>
+              </div>
+    
+              {isLoading && <p className="mt-3">Procesando compra...</p>}
             </>
-            )}
+          )}
         </div>
-    );
+      );
 };
 
 export default Checkout;

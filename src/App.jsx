@@ -5,18 +5,22 @@ import ItemDetailContainer from "./components/ItemDetailConteiner/ItemDetailCont
 import CartProvider from "./context/CartProvider";
 import Checkout from "./components/Checkout";
 
+
 function App() {
-  return(
+  return (
     <CartProvider>
-      <Navbar />
-      <Routes>
-      <Route path= "/" element={<ItemListContainer/>} />
-      <Route path= "/category/:categoryId" element={<ItemListContainer/>} />
-      <Route path= "/item/:id" element={<ItemDetailContainer/>} />
-      <Route path= "/checkout" element={<Checkout/>} />
-     </Routes>
+      <div style={{ background: '#f0f0f0' }}> {/* Agregar un color de fondo */}
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </div>
     </CartProvider>
   );
+  
 }
 
 export default App;
