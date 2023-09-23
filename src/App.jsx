@@ -9,7 +9,7 @@ import Checkout from "./components/Checkout";
 function App() {
   return (
     <CartProvider>
-      <div style={{ background: '#f0f0f0' }}> {/* Agregar un color de fondo */}
+      <div style={{ background: '#f0f0f0' }}> 
         <Navbar />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />

@@ -16,6 +16,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIRESTORE_APP_ID,
 };
 
+
 initializeApp(firebaseConfig);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

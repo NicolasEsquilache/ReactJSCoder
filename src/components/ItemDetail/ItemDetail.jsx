@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import PropTypes from "prop-types";
 import CartContext from '../../context/CartContext'; import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ItemDetail = ({ item, isLoading, addItem }) => {
+  const [quantity, setQuantity] = useState(1);
   if (isLoading) {
     return (
       <div className="container mt-4">
@@ -43,28 +44,44 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
               <p className="card-text">Precio: US${item.price}</p>
               <p className="card-text">Stock: {item.stock}</p>
               <p className="card-text">Categoría: {item.categoryId}</p>
-              <button onClick={() => {
-                addItem(item, 1);
-                toast.success(`${item.title} se agregó al carrito.`, {
-                  position: "bottom-right",
-                  autoClose: 2000, 
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                });
-              }}
-                className="btn btn-primary"
-              >Agregar al carrito
-              </button>
+              <div className="input-group mb-3">
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="Cantidad"
+                  value={quantity}
+                  onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
+                  min="1" 
+                  max={item.stock} 
+                />
+                <div className="input-group-append">
+                  <button
+                    onClick={() => {
+                      addItem(item, quantity); 
+                      toast.success(`${quantity} ${item.title}(s) se agregaron al carrito.`, {
+                        position: "bottom-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                      });
+                    }}
+                    className="btn btn-primary"
+                    type="button"
+                  >
+                    Agregar al carrito
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   );
+  
 
 };
 

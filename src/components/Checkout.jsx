@@ -37,7 +37,7 @@ const Checkout = () => {
       .then((docRef) => {
         setOrderId(docRef.id);
         setIsLoading(false);
-        // No borramos el carrito aquí para mantener los datos visibles
+        // No borramos el carrito aquí para mantener los datos visibles en el checkout
         // clear();
       });
   };
