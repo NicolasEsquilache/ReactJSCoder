@@ -7,8 +7,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import App from './App.jsx';
 import './index.css';
 
-firebase.firestore().settings({ experimentalForceLongPolling: true});
-
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIRESTORE_API_KEY,
   authDomain: import.meta.env.VITE_FIRESTORE_AUTH_DOMAIN,
