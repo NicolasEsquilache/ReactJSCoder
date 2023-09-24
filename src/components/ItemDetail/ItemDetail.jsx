@@ -32,7 +32,7 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
         <div className="row g-0">
           <div className="col-md-4 d-flex align-items-center">
             <img
-              src={`/src/assets/${item.imageId}`}
+              src={`/Images/${item.imageId}`}
               alt={item.title}
               className="img-fluid rounded-start mx-auto"
             />

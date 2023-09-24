@@ -27,7 +27,7 @@ const ItemList = ({ items, isLoading }) => {
                   <Link to={`/item/${item.id}`} className="text-decoration-none">
                     <div className="card-body">
                       <img
-                        src={`/src/assets/${item.imageId}`}
+                        src={`/Images/${item.imageId}`}
                         alt={item.title}
                         className="card-img-top"
                       />

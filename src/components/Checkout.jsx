@@ -66,7 +66,7 @@ const Checkout = () => {
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="d-flex align-items-center">
                     <img
-                      src={`/src/assets/${item.imageId}`}
+                      src={`/Images/${item.imageId}`}
                       alt={item.title}
                       className="img-thumbnail me-3"
                       style={{ width: "80px", height: "80px" }}
@@ -159,7 +159,7 @@ const Checkout = () => {
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="d-flex align-items-center">
                       <img
-                        src={`/src/assets/${item.imageId}`}
+                        src={`/Images/${item.imageId}`}
                         alt={item.title}
                         className="img-thumbnail me-3"
                         style={{ width: "80px", height: "80px" }}
