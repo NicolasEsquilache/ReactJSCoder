@@ -27,7 +27,7 @@ const NavBar = () => {
                   <NavLink
                     to="/category/drone"
                     className="nav-link"
-                    activeClassName="active"
+                    activeclassname="active"
                   >
                     Drones
                   </NavLink>
@@ -36,7 +36,7 @@ const NavBar = () => {
                   <NavLink
                     to="/category/camera"
                     className="nav-link"
-                    activeClassName="active"
+                    activeclassname="active"
                   >
                     Cámaras
                   </NavLink>
@@ -45,7 +45,7 @@ const NavBar = () => {
                   <NavLink
                     to="/category/tecnology"
                     className="nav-link"
-                    activeClassName="active"
+                    activeclassname="active"
                   >
                     Tecnología
                   </NavLink>

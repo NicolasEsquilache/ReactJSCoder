@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useContext } from "react";
 import PropTypes from "prop-types";
-import CartContext from '../../context/CartContext'; import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ItemDetail = ({ item, isLoading, addItem }) => {
@@ -25,6 +24,18 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
     return <h2>Producto no encontrado.</h2>;
   }
 
+  const incrementQuantity = () => {
+    if (quantity < item.stock) {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const decrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <div className="container mt-4">
       <ToastContainer />
@@ -45,44 +56,58 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
               <p className="card-text">Stock: {item.stock}</p>
               <p className="card-text">Categoría: {item.categoryId}</p>
               <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <button
+                    className="btn btn-primary"
+                    onClick={decrementQuantity}
+                    type="button"
+                  >
+                    -
+                  </button>
+                </div>
                 <input
                   type="number"
                   className="form-control"
                   placeholder="Cantidad"
                   value={quantity}
                   onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
-                  min="1" 
-                  max={item.stock} 
+                  min="1"
+                  max={item.stock}
                 />
                 <div className="input-group-append">
                   <button
-                    onClick={() => {
-                      addItem(item, quantity); 
-                      toast.success(`${quantity} ${item.title}(s) se agregaron al carrito.`, {
-                        position: "bottom-right",
-                        autoClose: 2000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                      });
-                    }}
                     className="btn btn-primary"
+                    onClick={incrementQuantity}
                     type="button"
                   >
-                    Agregar al carrito
+                    +
                   </button>
                 </div>
               </div>
+              <button
+                onClick={() => {
+                  addItem(item, quantity);
+                  toast.success(`${quantity} ${item.title}(s) se agregaron al carrito.`, {
+                    position: "bottom-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  });
+                }}
+                className="btn btn-primary"
+                type="button"
+              >
+                Agregar al carrito
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-  
-
 };
 
 ItemDetail.propTypes = {
