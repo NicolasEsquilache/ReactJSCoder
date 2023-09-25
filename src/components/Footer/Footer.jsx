@@ -56,7 +56,19 @@ const Footer = () => {
                         </form>
                     </div>
                 </div>
-                {/* ... (código anterior) */}
+                <hr className="my-4" />
+                <div className="row">
+                    <div className="col-md-6">
+                        <p>&copy; 2023 MercadoNico. Todos los derechos reservados.</p>
+                    </div>
+                    <div className="col-md-6">
+                        <ul className="list-inline text-md-right">
+                            <li className="list-inline-item"><a href="#"><i className="fa fa-facebook"></i></a></li>
+                            <li className="list-inline-item"><a href="#"><i className="fa fa-twitter"></i></a></li>
+                            <li className="list-inline-item"><a href="#"><i className="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <ToastContainer />
         </footer>
