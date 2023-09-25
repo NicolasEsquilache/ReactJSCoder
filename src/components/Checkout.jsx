@@ -209,12 +209,12 @@ const Checkout = () => {
       {isLoading && (
         <div className="row mt-3">
           <div className="col-md-12 text-center">
-          <div className="col-md-12 text-center">
-            <div className="spinner-border spinner-border-lg text-primary" role="status">
-              <span className="visually-hidden">Cargando...</span>
+            <div className="col-md-12 text-center">
+              <div className="spinner-border spinner-border-lg text-primary" role="status">
+                <span className="visually-hidden">Cargando...</span>
+              </div>
+              <p className="mt-2">Procesando Compra...</p>
             </div>
-            <p className="mt-2">Procesando Compra...</p>
-          </div>
           </div>
         </div>
       )}
