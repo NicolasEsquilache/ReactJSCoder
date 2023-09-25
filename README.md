@@ -15,7 +15,7 @@ Este proyecto es una tienda en línea desarrollada en ReactJs como parte del cur
 
 ## Link al proyecto en linea
 
-https://unrivaled-semolina-6f6dc9.netlify.app/
+https://mercadonico.netlify.app/
 
   
 
