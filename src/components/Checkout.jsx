@@ -22,9 +22,25 @@ const Checkout = () => {
   const total = getCartTotal(cart);
 
   const isFormValid = name && email && phone;
+  const isCartEmpty = cart.length === 0;
 
   const handleCheckout = (event) => {
     event.preventDefault();
+
+    
+    if (isCartEmpty) {
+      toast.error("El carrito está vacío. Agrega productos antes de continuar.", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return; 
+    }
+
     setIsLoading(true);
     const order = {
       buyer: formState,
@@ -88,13 +104,12 @@ const Checkout = () => {
           <Link to="/" className="btn btn-success me-2" onClick={() => clear()}>
             Volver al inicio
           </Link>
-
         </div>
       )}
 
-      {!orderId && (
-        <div className="row">
-          <div className="col-md-6">
+      <div className="row">
+        <div className="col-md-6 mb-4">
+          {!orderId && !isCartEmpty && (
             <form onSubmit={handleCheckout}>
               <h2 className="text-center mt-3">Ingresa tus datos para completar la compra</h2>
               <div className="container p-2">
@@ -149,64 +164,64 @@ const Checkout = () => {
                 </div>
               </div>
             </form>
-          </div>
+          )}
+        </div>
 
-          <div className="col-md-6">
-            <h2>Resumen del carrito</h2>
-            <ul className="list-group">
-              {cart.map((item) => (
-                <li key={item.id} className="list-group-item">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div className="d-flex align-items-center">
-                      <img
-                        src={`/Images/${item.imageId}`}
-                        alt={item.title}
-                        className="img-thumbnail me-3"
-                        style={{ width: "80px", height: "80px" }}
-                      />
-                      <div>
-                        <p>{item.title}</p>
-                        <p>Cantidad: {item.quantity}</p>
-                      </div>
-                    </div>
+        <div className="col-md-6 mb-4">
+          <h2>Resumen del carrito</h2>
+          <ul className="list-group">
+            {cart.map((item) => (
+              <li key={item.id} className="list-group-item">
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex align-items-center">
+                    <img
+                      src={`/Images/${item.imageId}`}
+                      alt={item.title}
+                      className="img-thumbnail me-3"
+                      style={{ width: "80px", height: "80px" }}
+                    />
                     <div>
-                      <p>Precio por unidad: ${item.price}</p>
-                      <p>Subtotal: ${item.price * item.quantity}</p>
+                      <p>{item.title}</p>
+                      <p>Cantidad: {item.quantity}</p>
                     </div>
                   </div>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-3">Total de la compra: ${total}</p>
-            <div className="row mt-4">
-              <div className="col-md-12 d-flex justify-content-center">
-                <Link to="/" className="btn btn-secondary me-2">
-                  Seguir comprando
-                </Link>
-                {cart.length > 0 && (
-                  <button
-                    onClick={() => {
-                      clear();
-                      toast.success("Carrito borrado correctamente.", {
-                        position: "bottom-right",
-                        autoClose: 2000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                      });
-                    }}
-                    className="btn btn-danger"
-                  >
-                    Borrar carrito
-                  </button>
-                )}
-              </div>
+                  <div>
+                    <p>Precio por unidad: ${item.price}</p>
+                    <p>Subtotal: ${item.price * item.quantity}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3">Total de la compra: ${total}</p>
+          <div className="row mt-4">
+            <div className="col-md-12 d-flex justify-content-center">
+              <Link to="/" className="btn btn-secondary me-2">
+                Seguir comprando
+              </Link>
+              {cart.length > 0 && (
+                <button
+                  onClick={() => {
+                    clear();
+                    toast.success("Carrito borrado correctamente.", {
+                      position: "bottom-right",
+                      autoClose: 2000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                    });
+                  }}
+                  className="btn btn-danger"
+                >
+                  Borrar carrito
+                </button>
+              )}
             </div>
           </div>
         </div>
-      )}
+      </div>
 
       {isLoading && (
         <div className="row mt-3">
