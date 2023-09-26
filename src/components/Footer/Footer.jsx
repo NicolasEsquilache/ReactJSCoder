@@ -41,7 +41,7 @@ const Footer = () => {
                         <h4>Suscríbete a nuestro Newsletter</h4>
                         <p>Recibe ofertas exclusivas y actualizaciones</p>
                         <form onSubmit={handleSubscribe}>
-                            <div className="form-group">
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <input
                                     type="email"
                                     className="form-control"
@@ -49,10 +49,12 @@ const Footer = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
+                                <div className="input-group-append">
+                                    <button type="submit" className="btn btn-primary">
+                                        Suscribirse
+                                    </button>
+                                </div>
                             </div>
-                            <button type="submit" className="btn btn-primary">
-                                Suscribirse
-                            </button>
                         </form>
                     </div>
                 </div>
