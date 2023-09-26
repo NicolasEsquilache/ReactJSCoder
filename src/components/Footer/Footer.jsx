@@ -7,7 +7,15 @@ const Footer = () => {
 
     const handleSubscribe = (e) => {
         e.preventDefault();
-        // Aca iria la logica de enviar los mails o guardarlos en la base de datos para posteriores mails en
+    
+        if (!email) {
+            toast.error('Por favor, ingresa tu dirección de correo electrónico.', {
+                position: 'bottom-right',
+                autoClose: 3000,
+            });
+            return;
+        }
+        // Aca iria la lógica de enviar los mails o guardarlos en la base de datos para posteriores correos en
         // Por ahora, solo mostramos el Toastify como ejemplo.
         toast.success('Te has suscrito correctamente. ¡Gracias!', {
             position: 'bottom-right',
