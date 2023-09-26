@@ -142,6 +142,12 @@ En estos componentes se muestra la lista completa de los productos disponibles e
 
 En este componente sucede toda la lógica de la compra, la escritura de la base de datos con nuestro pedido y la confirmación del mismo.
 
+### Footer
+
+  
+
+Aquí está la información de la tienda, enlaces útiles y la posibilidad de suscribirse a Newsletter para recibir ofertas y novedades.
+
 ## Dependencias usadas
 
  - Bootstrap
