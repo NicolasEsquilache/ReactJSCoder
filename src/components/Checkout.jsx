@@ -183,23 +183,25 @@ const Checkout = () => {
                 <Link to="/" className="btn btn-secondary me-2">
                   Seguir comprando
                 </Link>
-                <button
-                  onClick={() => {
-                    clear();
-                    toast.success("Carrito borrado correctamente.", {
-                      position: "bottom-right",
-                      autoClose: 2000,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                    });
-                  }}
-                  className="btn btn-danger"
-                >
-                  Borrar carrito
-                </button>
+                {cart.length > 0 && (
+                  <button
+                    onClick={() => {
+                      clear();
+                      toast.success("Carrito borrado correctamente.", {
+                        position: "bottom-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                      });
+                    }}
+                    className="btn btn-danger"
+                  >
+                    Borrar carrito
+                  </button>
+                )}
               </div>
             </div>
           </div>
