@@ -7,7 +7,7 @@ const Footer = () => {
 
     const handleSubscribe = (e) => {
         e.preventDefault();
-    
+
         if (!email) {
             toast.error('Por favor, ingresa tu dirección de correo electrónico.', {
                 position: 'bottom-right',

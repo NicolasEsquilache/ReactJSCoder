@@ -15,7 +15,7 @@ const Checkout = () => {
     email: "",
     phone: "",
   });
-  const { cart, clear } = useContext(CartContext);
+  const { cart, clear, advBorrar } = useContext(CartContext);
 
   const { name, email, phone } = formState;
 
@@ -27,7 +27,7 @@ const Checkout = () => {
   const handleCheckout = (event) => {
     event.preventDefault();
 
-    
+
     if (isCartEmpty) {
       toast.error("El carrito está vacío. Agrega productos antes de continuar.", {
         position: "bottom-right",
@@ -38,7 +38,7 @@ const Checkout = () => {
         draggable: true,
         progress: undefined,
       });
-      return; 
+      return;
     }
 
     setIsLoading(true);
@@ -202,16 +202,8 @@ const Checkout = () => {
               {cart.length > 0 && (
                 <button
                   onClick={() => {
-                    clear();
-                    toast.success("Carrito borrado correctamente.", {
-                      position: "bottom-right",
-                      autoClose: 2000,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                    });
+                    advBorrar();
+
                   }}
                   className="btn btn-danger"
                 >
