@@ -157,3 +157,4 @@ Aquí está la información de la tienda, enlaces útiles y la posibilidad de su
  - Prop-Types
  - React
  - React-Toastify
+ - Sweet Alert
